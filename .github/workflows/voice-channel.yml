@@ -1,0 +1,34 @@
+name: Update Voice Windows channel
+on:
+  release:
+    types: [published, edited, deleted, unpublished]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: voice-windows-channel
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Select the newest complete stable Voice version
+        run: node scripts/update-voice-channel.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Save channel
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add channels/voice/windows.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update KiPT Voice Windows download channel'
+            git push
+          fi
