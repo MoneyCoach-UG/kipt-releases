@@ -1,7 +1,7 @@
 {
   "available": true,
-  "version": "0.5.0",
-  "url": "https://github.com/MoneyCoach-UG/kipt-releases/releases/download/voice-v0.5.0/KiPTVoice-Setup-x64.exe",
-  "sha256": "3573afe4d0f92159a6775110855162950d45f2757c892da2c782fff863303796",
-  "size": 121172513
+  "version": "0.6.0",
+  "url": "https://github.com/MoneyCoach-UG/kipt-releases/releases/download/voice-v0.6.0/KiPTVoice-Setup-x64.exe",
+  "sha256": "0b6221327d8fe8397b2f70dc539c31f3d4a72585e4677fe3678ddcb3e69796e0",
+  "size": 121144159
 }
